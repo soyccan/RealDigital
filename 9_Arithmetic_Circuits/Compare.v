@@ -1,0 +1,4 @@
+module Compare(
+);
+
+endmodule

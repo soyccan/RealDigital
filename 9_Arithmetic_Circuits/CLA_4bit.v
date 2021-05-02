@@ -2,8 +2,10 @@
 module CLA_4bit(
     input [3:0] A,
     input [3:0] B,
+    input Cin,
     output [3:0] S,
-    output Cout
+    output Cout,
+    output overflow
 );
 
 wire [3:0] P;
@@ -41,10 +43,12 @@ BitSlice b0(
 CPGN cpgn(
     .P(P),
     .G(G),
+    .Cin(Cin),
     .C(C)
 );
 
 assign Cout = C[4];
+assign overflow = C[4] ^ C[3];
 
 assign S[3] = P[3] ^ C[3];
 assign S[2] = P[2] ^ C[2];
