@@ -1,13 +1,13 @@
-module AddSubWrapper(
-    input clk,
-    input [7:0] sw,
-    input [2:0] btn,
-    output [3:0] seg_an,
-    output [7:0] seg_cat,
-    output [1:0] led
-);
+module AddSubWrapper;
 
 //// Regs & Wires ////
+wire clk;
+wire [7:0] sw;
+wire [2:0] btn;
+wire [1:0] led;
+reg [3:0] seg_an;
+reg [7:0] seg_cat;
+
 reg [7:0] op1, op2;
 wire [7:0] S;
 
