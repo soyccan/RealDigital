@@ -1,39 +1,37 @@
-module MulWrapper(
+module CompWrapper(
     input clk,
     input [7:0] sw,
     input [2:0] btn,
-    output reg [7:0] seg_cat,
-    output reg [3:0] seg_an
+    output [2:0] led
 );
 
 //////// Parameter ////////
 
 //////// Reg & Wire Declaration ////////
 reg [7:0] op1, op2;
-wire [15:0] res;
-wire [15:0] bcd;
+reg [15:0] res;
+wire [15:0] res_nxt;
 
 //////// Submodule Instantiation ////////
-Bin2Bcd bin2bcd(
-    .bin(res),
-    .bcd(bcd)
-);
 
 //////// Finite-State Machine ////////
 
 //////// Combinational Logic ////////
-assign res = op1 * op2;
+assign res_nxt = op1 * op2;
+
+assign led[2'd0] = res < res_nxt;
+assign led[2'd1] = res == res_nxt;
+assign led[2'd2] = res > res_nxt;
 
 //////// Sequential Logic ////////
-always @ (posedge(clk)) begin
+always @(posedge clk) begin
+    res <= res_nxt;
+end
+
+always @(posedge clk) begin
     if (btn[0]) op1 <= sw;
     if (btn[1]) op2 <= sw;
 end
 
-always @(posedge clk) begin
-    case (bcd[3:0])
-        4'b0000: seg_an <= 7'b0000000;
-    endcase
-end
-
 endmodule
+
