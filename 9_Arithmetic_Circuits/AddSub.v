@@ -3,7 +3,7 @@ module AddSub(
     input [7:0] A_in,
     input [7:0] B_in,
     input sub,
-    output [7:0] S,
+    output [7:0] S_out,
     output overflow,
     output neg
 );
@@ -12,34 +12,77 @@ module AddSub(
 
 //////// Reg & Wire Declaration ////////
 wire [7:0] A, B;
-wire c;
+wire [8:0] S;
 
 //////// Submodule Instantiation ////////
-CLA_4bit adder0(
-    .A(A[3:0]),
-    .B(B[3:0]),
-    .S(S[3:0]),
-    .Cin(1'b0),
-    .Cout(c),
-    .overflow(overflow)
-);
-
-CLA_4bit adder1(
-    .A(A[7:4]),
-    .B(B[7:4]),
-    .S(S[7:4]),
-    .Cin(c),
-    .Cout(),
-    .overflow(overflow)
-);
 
 //////// Finite-State Machine ////////
 
 //////// Combinational Logic ////////
 assign A = A_in;
 assign B = sub ? B_in : ~B_in + 1;
+// if(sub) B = B_in; else B = ~B_in + 1;
+
+// signed extension
+// sign bit
+// 0010 -> 00010
+// 1100 -> 11100
+assign S = {A[7], A} + {B[7], B};
+
+// overflow detect
+assign overflow = S[8] ^ S[7];
+
+// negative
+// sign bit
+assign neg = S[7];
+
+assign S_out = S[7:0];
 
 //////// Sequential Logic ////////
+
+A - B
+= A + 2's complement of B
+
+B = 0010 = 2
+B' = 1101 + 1 = 1110 = -2
+
+A = 0100 = 4
+B = 0010 = 2
+B' = 1110 = -2
+
+A - B = A + B'
+
+ 0100
++1110
+ ----
+10010
+=> 0010 = 2
+
+xxxx10000000
+
+// 4-bit signed int: -8 ~ 7
+
+// signed not overflow
+A = 1110 = -2
+B = 1010 = (0110)' = -6
+
+1110
+ 1110
++1010
+ ----
+11000
+=> 1000 = (1000)' = -8
+
+
+// overflow
+A = 0110 = 6
+B = 0010 = 4
+0110
+ 0110
++0010
+-----
+01000
+=> -8
 
 endmodule
 
