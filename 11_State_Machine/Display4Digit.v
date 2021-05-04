@@ -14,7 +14,7 @@ reg [3:0] cur_bcd;
 reg [6:0] seg_cat_inv;
 wire dec_pt;
 
-assign cur_dig = counter[27:26];
+assign cur_dig = counter[17:16];
 assign seg_cat = {~dec_pt, ~seg_cat_inv};
 assign dec_pt = en_dec_pt && cur_dig == 2'b11;
 
@@ -28,10 +28,12 @@ always @* begin
 end
 
 always @(posedge clk) begin
-    for (i = 0; i < 4; i = i + 1)
-        seg_an[i] <= 1;
-
-    seg_an[cur_dig] <= 0;
+    case (cur_dig)
+        2'b00: seg_an = 4'b1110;
+        2'b01: seg_an = 4'b1101;
+        2'b10: seg_an = 4'b1011;
+        2'b11: seg_an = 4'b0111;
+    endcase
 end
 
 always @(posedge clk) begin

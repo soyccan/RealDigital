@@ -5,10 +5,27 @@ module Stopwatch(
     output [7:0] seg_cat
 );
 
+localparam IDLE = 1'b0;
+localparam RUNNING = 1'b1;
+
+reg [13:0] counter;
+wire btn_start, btn_stop, btn_clear, btn_inc;
+wire clk_slow;
+wire [15:0] bcd;
+reg state;
+reg state_nxt;
+
+
+assign btn_clear = btn[0];
+assign btn_start = btn[1];
+assign btn_stop = btn[2];
+assign btn_inc = btn[3];
+
+
 // Clock Divider: 100MHz / 100000 = 1KHz
-ClkDivider #(.divisor(100000)) CUT1(
+ClkDivider #(.divisor(100000)) clk_div_u(
     .clk(clk),
-    .rst(btn_rst),
+    .rst(btn_clear),
     .clk_div(clk_slow)
 );
 
@@ -34,16 +51,16 @@ always @* begin
 end
 
 // State Register
-always @(posedge clk, posedge rst) begin
-    if (rst)
+always @(posedge clk, posedge btn_clear) begin
+    if (btn_clear)
         state <= IDLE;
     else
         state <= state_nxt;
 end
 
 // Output Logic
-always @* begin
-end
+// always @* begin
+// end
 
 // Counter
 always @(posedge clk_slow) begin
@@ -53,12 +70,18 @@ always @(posedge clk_slow) begin
         counter <= counter + 1;
 end
 
+Bin2Bcd CUT1(
+    .bin(counter),
+    .bcd(bcd)
+);
+
 // 7-seg Controller
-Display4Digit CUT(
-    .bcd(),
+Display4Digit CUT2(
+    .clk(clk),
+    .bcd(bcd),
     .en_dec_pt(1'b1),
     .seg_cat(seg_cat),
     .seg_an(seg_an)
-)
+);
 
 endmodule
