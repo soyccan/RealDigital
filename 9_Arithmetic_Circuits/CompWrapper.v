@@ -25,6 +25,7 @@ assign led[2] = res > res_nxt;
 
 //////// Sequential Logic ////////
 always @(posedge clk) begin
+<<<<<<< Updated upstream
     state <= sw[8];
 end
 

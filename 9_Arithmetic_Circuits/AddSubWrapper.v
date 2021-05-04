@@ -10,6 +10,7 @@ reg [7:0] seg_cat;
 
 reg [7:0] op1, op2;
 wire [7:0] S;
+wire [15:0] S_bcd;
 
 //// Submodule Instantiation ////
 AddSub addsub(
@@ -24,6 +25,21 @@ AddSub addsub(
     .neg(led[1])
 );
 
+Bin2Bcd CUT1(
+    // input
+    .bin(S),
+
+    //output
+    .bcd(S_bcd)
+);
+
+digit_display CUT2(
+    .clk(clk),
+    .bcd(S_bcd),
+    .seg_cat(seg_cat),
+    .seg_an(seg_an)
+);
+
 //// Combination Logic ////
 
 //// Sequential Logic ////
@@ -32,10 +48,5 @@ always @ (posedge(clk)) begin
     if (btn[1]) op2 <= sw;
 end
 
-always @(posedge clk) begin
-    case (S)
-        4'b0000: seg_cat <=
-    endcase
-end
 
 endmodule

@@ -23,6 +23,24 @@ assign A = A_in;
 assign B = sub ? B_in : ~B_in + 1;
 // if(sub) B = B_in; else B = ~B_in + 1;
 
+Input 8-bit
+11111111
+
+BCD 12-bit:
+    2      5    5
+   0001 0101 0101
+
+
+ 00000001
++00000010
+---------
+ 00000011
+
+ 00000001
++11111110
+---------
+ 11111111
+
 // signed extension
 // sign bit
 // 0010 -> 00010
@@ -42,6 +60,20 @@ assign S_out = S[7:0];
 
 A - B
 = A + 2's complement of B
+
+-1 = 2's complement of 1
+= 2's complemente of 00000001
+= 11111110 + 1
+= 11111111
+= 255
+
+// unsigned (only positive)
+11111111 = 255
+
+// signed
+11111111 = -1
+
+signed addition or unsigned addition
 
 B = 0010 = 2
 B' = 1101 + 1 = 1110 = -2
