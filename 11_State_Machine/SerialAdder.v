@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
-module SA(
+
+module SerialAdder(
     input clk,
     input rst,
     input A,
@@ -49,7 +50,7 @@ always @* begin
 
         S3: begin
             if (A == 1'b0 && B == 1'b0)
-                nState = S1	;
+                nState = S1;
             else if (A == 1'b1 && B == 1'b1)
                 nState = S3;
             else
@@ -69,7 +70,7 @@ always @(posedge clk, posedge rst) begin
 end
 
 // Output Logic
-assign F = (pState == S1 || pState == S3) ? 1'b1 : 1'b0;
-assign Cout = (pState == S2 || pState == S3) ? 1'b1 : 1'b0;
+assign F = pState == S1 || pState == S3; // Sum
+assign Cout = pState == S2 || pState == S3;
 
 endmodule
