@@ -11,6 +11,9 @@ module CompWrapper(
 reg [7:0] op1, op2;
 reg [15:0] res;
 wire [15:0] res_nxt;
+reg [27:0] counter;
+reg state;
+wire clk_slow;
 
 //////// Submodule Instantiation ////////
 
@@ -23,14 +26,21 @@ assign led[0] = res < res_nxt;
 assign led[1] = res == res_nxt;
 assign led[2] = res > res_nxt;
 
+// Slow Clock Cycle = 2^25 / 100MHz = 0.34s
+assign clk_slow = counter[25];
+
 //////// Sequential Logic ////////
-always @(posedge clk) begin
+always @(posedge clk_slow) begin
     state <= sw[8];
 end
 
-always @(posedge clk) begin
+always @(posedge clk_slow) begin
     if (sw[8] != state)
         res <= res_nxt;
+end
+
+always @(posedge clk) begin
+    counter <= counter + 1;
 end
 
 always @(posedge clk) begin
