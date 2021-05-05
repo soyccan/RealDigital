@@ -11,9 +11,9 @@ reg [1:0] pos;
 wire F, Cout;
 wire res_in;
 
-integer x, y, i, j;
+integer x, y, i;
 
-SerialAdder CUT(
+SerialAdder DUT(
     .clk(clk),
     .rst(rst),
     .A(A[pos]),
@@ -23,8 +23,9 @@ SerialAdder CUT(
 );
 
 initial begin
-    $dumpfile("a.vcd");
-    $dumpvars();
+    // Dump to a waveform file, can be read by GtkWave, Vivado, nWave ...
+    // $dumpfile("a.vcd");
+    // $dumpvars();
 
     clk = 1'b1;
 
@@ -32,20 +33,23 @@ initial begin
     #(`CYCLE * 0.5) rst = 1'b1;
     #(`CYCLE * 1) rst = 1'b0;
 
-    for (x = 0; x < 12; x = x + 1) begin
-        for (y = 0; y < 12; y = y + 1) begin
+    for (x = 0; x < 16; x = x + 1) begin
+        for (y = 0; y < 16; y = y + 1) begin
             A = x;
             B = y;
+
+            #(`CYCLE * 0.5) rst = 1'b1;
+            #(`CYCLE * 1) rst = 1'b0;
+            // DUT.pState = DUT.S0;
 
             pos = 0; #(`CYCLE); res[0] = res_in;
             pos = 1; #(`CYCLE); res[1] = res_in;
             pos = 2; #(`CYCLE); res[2] = res_in;
             pos = 3; #(`CYCLE); res[3] = res_in; res[4] = Cout;
 
-            if (res != x + y) begin
-                $display("Error: x=%d y=%d x+y=%d res=%d",
-                         x, y, x + y, res);
-            end
+            $display("%s x=%d y=%d x+y=%d res=%d",
+                     x + y == res ? "CORRECT" : "ERROR  ",
+                     x, y, x + y, res);
         end
     end
 
@@ -55,12 +59,5 @@ initial begin
 end
 
 always #(`CYCLE * 0.5) clk = ~clk;
-
-// always @(negedge clk) begin
-//     res[4] <= res_in;
-//     for (i = 0; i < 5; i = i + 1) begin
-//         res[i] <= res[i+1];
-//     end
-// end
 
 endmodule
