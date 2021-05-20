@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Apr 21 13:22:40 2021
+# Process ID: 21320
+# Current directory: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_8_sync_binary_counter/project_8_sync_binary_counter.runs/impl_1
+# Command line: vivado.exe -log sync_binary_counter.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source sync_binary_counter.tcl -notrace
+# Log file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_8_sync_binary_counter/project_8_sync_binary_counter.runs/impl_1/sync_binary_counter.vdi
+# Journal file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_8_sync_binary_counter/project_8_sync_binary_counter.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source sync_binary_counter.tcl -notrace

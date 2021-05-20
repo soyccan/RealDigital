@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Mar 24 12:23:34 2021
+# Process ID: 16588
+# Current directory: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_3_temp_indicator/project_3_temp_indicator.runs/synth_1
+# Command line: vivado.exe -log Temp_indicator.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Temp_indicator.tcl
+# Log file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_3_temp_indicator/project_3_temp_indicator.runs/synth_1/Temp_indicator.vds
+# Journal file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_3_temp_indicator/project_3_temp_indicator.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Temp_indicator.tcl -notrace

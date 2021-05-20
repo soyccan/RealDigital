@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Apr 26 12:41:23 2021
+# Process ID: 20764
+# Current directory: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_8_BCD_Counter/project_8_BCD_Counter.runs/impl_1
+# Command line: vivado.exe -log wrapper_BCD_Counter.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source wrapper_BCD_Counter.tcl -notrace
+# Log file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_8_BCD_Counter/project_8_BCD_Counter.runs/impl_1/wrapper_BCD_Counter.vdi
+# Journal file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_8_BCD_Counter/project_8_BCD_Counter.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source wrapper_BCD_Counter.tcl -notrace

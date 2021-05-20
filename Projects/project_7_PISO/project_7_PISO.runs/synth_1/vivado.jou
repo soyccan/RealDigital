@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Apr 21 12:36:50 2021
+# Process ID: 13476
+# Current directory: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_7_PISO/project_7_PISO.runs/synth_1
+# Command line: vivado.exe -log PISO.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source PISO.tcl
+# Log file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_7_PISO/project_7_PISO.runs/synth_1/PISO.vds
+# Journal file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_7_PISO/project_7_PISO.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source PISO.tcl -notrace

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Feb 18 20:21:43 2021
+# Process ID: 32656
+# Current directory: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/Introduction to Vivado Design Environment/Introduction to Vivado Design Environment.runs/synth_1
+# Command line: vivado.exe -log project1_demo.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source project1_demo.tcl
+# Log file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/Introduction to Vivado Design Environment/Introduction to Vivado Design Environment.runs/synth_1/project1_demo.vds
+# Journal file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/Introduction to Vivado Design Environment/Introduction to Vivado Design Environment.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source project1_demo.tcl -notrace

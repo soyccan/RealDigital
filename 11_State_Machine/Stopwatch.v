@@ -63,7 +63,7 @@ end
 // end
 
 // Counter
-always @(posedge clk_slow) begin
+always @(posedge clk_slow, posedge btn_clear) begin
     if (btn_clear || counter == 9999)
         counter <= 0;
     else if (state == RUNNING || btn_inc)

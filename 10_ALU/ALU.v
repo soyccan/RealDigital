@@ -32,7 +32,7 @@ Display4Digit CUT2(
 
 //// Combinational Logic ////
 always @* begin
-    case (sw[12:10]) // OpCode
+    case (sw[10:8]) // OpCode
         3'b000: res = A + B;
         3'b001: res = A + 1;
         3'b010: res = A - B;

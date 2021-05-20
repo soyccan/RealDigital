@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Apr 19 12:33:33 2021
+# Process ID: 11268
+# Current directory: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_7_3_D_Latch/project_7_3_D_Latch.runs/synth_1
+# Command line: vivado.exe -log D_Latch.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source D_Latch.tcl
+# Log file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_7_3_D_Latch/project_7_3_D_Latch.runs/synth_1/D_Latch.vds
+# Journal file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_7_3_D_Latch/project_7_3_D_Latch.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source D_Latch.tcl -notrace

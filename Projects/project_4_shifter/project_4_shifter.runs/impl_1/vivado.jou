@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Apr  5 13:19:38 2021
+# Process ID: 15444
+# Current directory: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_4_shifter/project_4_shifter.runs/impl_1
+# Command line: vivado.exe -log shifter_8_bit.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source shifter_8_bit.tcl -notrace
+# Log file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_4_shifter/project_4_shifter.runs/impl_1/shifter_8_bit.vdi
+# Journal file: C:/Users/Chi-cheng Chuang/OneDrive/Classes/Spring 2021/E_E_214/Projects/project_4_shifter/project_4_shifter.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source shifter_8_bit.tcl -notrace

@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../majority_of_five.srcs/sources_1/new/majority_of_five.v" \
+"../../../../majority_of_five.srcs/sim_1/new/majority_of_five_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
